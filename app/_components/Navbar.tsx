@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { IsnadSvg } from '@/public/svg/login';
-import useElementTransition from '../hooks/useElementTransition';
 export default function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
@@ -169,9 +168,9 @@ function OpetionSelectCurrency({ isActive, children, props }: { isActive: boolea
         </div>
     )
 }
-const NavbarButtonMobile = ({ text, pathname, path }: { text: string, pathname: string, path: string }) => {
+const NavbarButtonMobile = ({ text, pathname, path, onClick }: { text: string, pathname: string, path: string, onClick: () => void }) => {
     return (
-        <button className={cn('flex w-full cursor-pointer hover:bg-[rgba(255,255,255,0.05)] p-2  items-center justify-between typography-body-14-light text-text-gray2', {
+        <button onClick={onClick} className={cn('flex w-full cursor-pointer hover:bg-[rgba(255,255,255,0.05)] p-2  items-center justify-between typography-body-14-light text-text-gray2', {
             'text-white border-stroke-border bg-[rgba(255,255,255,0.05)]': pathname === path,
             'text-[#B8C6E3]': pathname !== path
         })}>{text} {<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -214,26 +213,5 @@ function LanguageSwitcher() {
                 AR
             </button>
         </div>
-    )
-}
-function MobileNavButton({ text, pathname, path, onClick }: {
-    text: string,
-    pathname: string,
-    path: string,
-    onClick: () => void
-}) {
-    return (
-        <button
-            className={cn(
-                'w-full flex py-3 px-4 items-center justify-start gap-2 rounded-lg text-[14px] text-right font-light transition-colors',
-                {
-                    'text-white bg-white/10 border border-stroke-border': pathname === path,
-                    'text-[#B8C6E3] hover:bg-white/5': pathname !== path
-                }
-            )}
-            onClick={onClick}
-        >
-            {text}
-        </button>
     )
 }
