@@ -1,0 +1,205 @@
+@import "tailwindcss";
+@import "./fonts.css";
+.background-login {
+  background-image: url("/images/background-login1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100dvh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Expo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@theme {
+  --font-alilato: "Alilato";
+
+  --color-primary-100: #371511;
+  --color-primary-90: #76342a;
+  --color-primary-80: #90402d;
+  --color-primary-70(main): #90402d;
+  --color-primary-60: #c57340;
+  --color-primary-50: #ce8c51;
+  --color-primary-40: #d7a672;
+  --color-primary-30: #e5c8a2;
+  --color-primary-20: #e5c8a2;
+  --color-primary-10: #f2e4d3;
+  --color-red-100: #5d0a02;
+  --color-red-90: #7f150b;
+  --color-red-80(main): #a12519;
+  --color-red-70: #ed301e;
+  --color-red-60: #f34e3f;
+  --color-red-50: #e55143;
+  --color-red-40: #ff8c81;
+  --color-red-30: #ffada5;
+  --color-red-20: #ffcfca;
+  --color-red-10: #fff0ee;
+  --color-neutral-100: #1b1c20;
+  --color-neutral-90: #393b43;
+  --color-neutral-80(main): #5f616c;
+  --distance-0: 0px;
+  --distance-4: 4px;
+  --distance-8: 8px;
+  --distance-12: 12px;
+  --distance-16: 16px;
+  --distance-20: 20px;
+  --distance-24: 24px;
+  --distance-28: 28px;
+  --distance-32: 32px;
+  --distance-40: 40px;
+  --distance-48: 48px;
+  --distance-56: 56px;
+  --distance-64: 64px;
+  --color-red-5: #fffbf6;
+  --color-primary-5: #fbf5ef;
+  --color-green-100: #189c70;
+  --color-green-90: #1aaa79;
+  --color-green-80(main): #1ec78f;
+  --color-green-70: #22d89b;
+  --color-green-60: #30dfa4;
+  --color-green-50: #53e4b3;
+  --color-green-40: #64e7bb;
+  --color-green-30: #a8f1d9;
+  --color-green-20: #cbf7e8;
+  --color-green-10: #eefcf7;
+  --color-green-5: #fffbf6;
+  --number: 1px;
+  --color-secondary-800: #212f43;
+  --color-secondary-900: #071427;
+  --color-secondary-950: #08182f;
+  --color-secondary-100: #eef5ff;
+  --color-secondary-200: #b8c6e3;
+  --color-secondary-300: #9ab0ce;
+  --color-secondary-400: #97a8bf;
+  --color-secondary-600: #213458;
+  --color-secondary-700: #395174;
+
+  /*token*/
+  --color-bg-primary: var(--color-primary-60);
+  --color-bg-secondry: var(--color-secondary-950);
+  --color-opacity-primary-70: #c57340;
+  --color-opacity-primary-80: #c57340;
+  --color-opacity-primary-90: #c57340;
+  --color-opacity-secondary-70: #08182f;
+  --color-opacity-secondary-80: #08182f;
+  --color-opacity-secondary-90: #08182f;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: var(--color-secondary-950);
+  --color-text-error: var(--color-red-60);
+  --color-text-disabled: var(--color-secondary-400);
+  --color-text-accent: #ffffff;
+  --color-opacity-white-10: #ffffff;
+  --color-opacity-whaite: #ffffff;
+  --color-opacity-secondary-10: #08182f;
+  --color-text-main: var(--color-primary-5);
+  --color-stroke-primary: var(--bg-primary);
+  --color-stroke-error: var(--color-red-60);
+  --color-text-whaite: var(--color-primary-5);
+  --color-button-primary: var(--color-primary-50);
+  --color-button-error: #f34e3f;
+  --color-button-primary-light: #252d3e;
+  --color-text-gray1: var(--color-secondary-100);
+  --color-text-gray2: var(--color-secondary-200);
+  --color-text-gray3: var(--color-secondary-400);
+  --color-stroke-disabled: var(--color-secondary-400);
+  --color-2: #ffffff;
+  --color-stroke-whaite: var(--color-primary-5);
+  --color-bg-whaite: var(--color-primary-5);
+  --color-main-bg: #576e94;
+  --color-bg-main: #ffffff;
+  --color-stroke-border: var(--color-secondary-800);
+  --color-bg-bg-2: #0d1f39;
+  --color-bg-black: var(--color-secondary-900);
+  --color-opacity-white-5: rgba(255, 255, 255, 0.05);
+  --color-stroke-white-5: rgba(255, 255, 255, 0.05);
+  --color-opacity-white-10: rgba(255, 255, 255, 0.1);
+}
+
+@utility typography-body-12-light {
+  font-family: "Expo", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 16.8px */
+}
+@utility typography-body-14-medium {
+  font-family: "Expo", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+}
+@utility typography-body-14-light {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
+@utility typography-body-16-regular {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%; /* 17.6px */
+}
+@utility typography-body-16-light {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+@utility typography-body-16-medium {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+}
+@utility typography-title-24-light {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 33.6px */
+}
+@utility typography-title-28-light {
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 39.2px */
+}
+@utility typography-subtitle-18-medium {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 25.2px */
+}
+@utility typography-subtitle-18-Light {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.glass-panel {
+  width: 354px;
+  height: 253px;
+  border-radius: 16px; /* Optional, based on your Figma rounding */
+
+  background: linear-gradient(to right, rgba(3, 24, 54, 0.82) 0%, #08182f 100%);
+
+  backdrop-filter: blur(92px);
+  -webkit-backdrop-filter: blur(92px); /* for Safari support */
+
+  /* Optional layer blur effect (blurs element content) */
+  filter: blur(
+    0px
+  ); /* Usually not applied here unless you're blurring the component itself */
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
