@@ -26,10 +26,12 @@ interface Link {
   id: string;
   title: LanguageField;
   url: string;
+  icon: string;
 }
 
 export interface CompanyType {
   id: string;
+  geoid: string;
   name: LanguageField;
   type: string;
   background_img: string | null;

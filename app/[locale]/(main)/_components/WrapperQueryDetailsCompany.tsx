@@ -13,6 +13,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = "ar" }: { id: 
         queryKey: ['company-details', id],
         queryFn: () => getCompanyDetails({ id }),
     })
+    console.log(data, "ds")
     const { t } = useTranslation('home_transtion');
     return (
         <div className="w-full flex flex-wrap flex-1 p-4 gap-4 bg-secondary-950 h-screen overflow-y-scroll  text-white low-y-auto">
@@ -20,7 +21,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = "ar" }: { id: 
                 {isLoading ?
                     <div className="absolute inset-0 bg-secondary-900 animate-pulse" />
                     :
-                    <Image src={'/images/details.png'} alt='company' fill className='object-cover'
+                    <Image src={data?.item?.background_img || ''} alt='company' fill className='object-cover'
                         placeholder="blur"
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHiQlJyAlJyQ1MTAyMDIyMTEwPERAQDhENzU8RjhHR1VIRU5TTUxOUkhCR0j/2wBDAQoLCw4NDhwQEBxDMiIyQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0P/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAb/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                         loading="eager"
@@ -42,7 +43,7 @@ export default function WrapperQueryDetailsCompany({ id, locale = "ar" }: { id: 
                                     <div className='w-20 h-[12px] bg-secondary-800 animate-pulse rounded-md'></div>
                                     :
                                     <p className="text-[#AAB7CB] text-center font-[Alilato] text-[12px] font-normal leading-[120%]">
-                                        {data?.item?.type}</p>
+                                        {data?.item?.location}</p>
                                 }
                             </div>
                             <div className='w-[48px] h-[48px] rounded-full bg-white'></div>
@@ -80,11 +81,9 @@ export default function WrapperQueryDetailsCompany({ id, locale = "ar" }: { id: 
                                 </div>
                                 :
                                 data?.item?.links.map((link) => (
-                                    <Link key={link.id} href={`http://${link.url}`} className='px-[28px] py-[20px] border border-[rgba(238,238,238,0.06)]'><svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
-                                        <path d="M6.63475 11.4727L5.48775 12.6197C3.17075 14.9367 3.17075 18.7137 5.48775 21.0307C7.79675 23.3397 11.5817 23.3477 13.8987 21.0307L15.0457 19.8837" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M18.8652 16.0664L20.0123 14.9194C22.3292 12.6024 22.3292 8.82543 20.0123 6.50843C17.7033 4.19943 13.9183 4.19143 11.6013 6.50843L10.4543 7.65544" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15.3867 11.2227L10.1543 16.455" stroke="#B8C6E3" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg></Link>
+                                    <Link key={link.id} href={`http://${link.url}`} className='px-[28px] py-[20px] relative border border-[rgba(238,238,238,0.06)]'>
+                                        <Image src={link?.icon || ''} alt='google' className='w-full h-full object-cover' fill />
+                                    </Link>
                                 ))}
                         </div>
                     </div>
